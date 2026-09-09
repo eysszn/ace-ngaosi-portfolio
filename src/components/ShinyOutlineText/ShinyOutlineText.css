@@ -1,0 +1,43 @@
+.outline-text {
+  position: relative;
+  display: inline-block;
+  color: transparent;
+  -webkit-text-stroke: 3px var(--color-text-light);
+  text-stroke: 3px var(--color-text-light);
+}
+
+.outline-text::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+
+  color: var(--color-accent);
+  -webkit-text-fill-color: var(--color-text-light);
+  -webkit-text-stroke: 2.5px var(--color-text-light);
+  text-stroke: 2.5px var(--color-text-light);
+
+  -webkit-mask-image: linear-gradient(100deg, transparent 40%, black 50%, transparent 60%);
+  mask-image: linear-gradient(100deg, transparent 30%, black 50%, transparent 70%);
+  -webkit-mask-size: 250% 100%;
+  mask-size: 250% 100%;
+  -webkit-mask-position: 150% 0;
+  mask-position: 150% 0;
+
+  animation: shine-sweep 6s ease-in-out infinite;
+  animation-delay: 1s;
+}
+
+.outline-text:hover::after {
+  animation-play-state: paused;
+}
+
+@keyframes shine-sweep {
+  0% {
+    -webkit-mask-position: 150% 0;
+    mask-position: 150% 0;
+  }
+  40%, 100% {
+    -webkit-mask-position: -50% 0;
+    mask-position: -50% 0;
+  }
+}
