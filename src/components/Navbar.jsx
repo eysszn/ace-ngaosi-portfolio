@@ -16,10 +16,10 @@ export default function Navbar() {
   const [open, setOpen] = useState(false)
 
   return (
-    <header>
-      <nav>
+    <header className="fixed top-0 left-0 right-0 z-50 border-b border-black/5 dark:border-white/5 bg-[var(--color-bg-light)]/90 dark:bg-[var(--color-bg-dark)]/90 backdrop-blur-sm">
+      <nav className="max-w-5xl mx-auto flex items-center justify-between px-6 py-4">
         {/* Initials */}
-        <a>
+        <a href="#top" className="font-[family-name:var(--font-heading)] text-lg font-semibold">
           Ace
         </a>
 

@@ -1,4 +1,5 @@
 import Navbar from './components/Navbar'
+import Hero from './sections/hero/Hero'
 // import About from './sections/about/About'
 // import Education from './sections/education/Education'
 // import Experience from './sections/experience/Experience'
@@ -10,8 +11,13 @@ function App(){
   return (
     <div id="top" className="min-h-screen">
       <Navbar />
+      {/* Hero Section */}
+      <section id="hero" className="min-h-screen pt-18">
+        <Hero />
+      </section>
 
-      <main className="max-w-5xl mx-auto px-6 pt-24">
+      <main className="max-w-7xl mx-auto px-6 pt-24">
+
 
         {/* About Section  */}
         <section id="about" className="min-h-screen">
