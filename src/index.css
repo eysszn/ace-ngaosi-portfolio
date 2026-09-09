@@ -3,8 +3,9 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
---font-heading: "Space Grotesk", sans-seriff;
+--font-heading: "Space Grotesk", sans-serif;
 --font-body: "inter", sans-serif;
+--font-hero: "Archivo", sans-serif;
 
 --color-accent: #14b8a6;
 --color-accent-dark: #0d9488;
@@ -12,24 +13,55 @@
 --color-bg-light: #f7f5f0;
 --color-bg-dark: #0b1120;
 
---color-text-light: #1a1d23;
---color-text-dark: #e5e7eb;
+--color-text-light: #e5e7eb;
+--color-text-dark: #1a1d23;
 }
 
 @layer base {
   body {
     font-family: var(--font-body);
     background-color: var(--color-bg-light);
-    color: var(--color-text-light);
+    color: var(--color-text-dark);
     transition: background-color 0.2s ease, color 0.2s ease;
   }
 
   .dark body {
     background-color: var(--color-bg-dark);
-    color: var(--color-text-dark);
+    color: var(--color-text-light);
   }
 
   h1, h2, h3, h4 {
     font-family: var(--font-heading);
+  }
+}
+
+:root {
+  /* default navbar height — adjust if your navbar differs */
+  --navbar-height: 72px;
+}
+
+/* Hero helpers: ensure the hero fits the viewport minus the navbar
+   and apply a diagonal clip to the photo on larger screens */
+.hero-section {
+  height: calc(100vh - var(--navbar-height));
+}
+
+.hero-photo {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.hero-photo > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+@media (min-width: 768px) {
+  .hero-photo {
+    clip-path: polygon(32% 0, 100% 0, 100% 100%, 0% 100%);
   }
 }
