@@ -1,7 +1,7 @@
 import Navbar from './components/Navbar'
 import Hero from './sections/hero/Hero'
 import About from './sections/about/About'
-// import Education from './sections/education/Education'
+import Education from './sections/education/Education'
 // import Experience from './sections/experience/Experience'
 // import Projects from './sections/projects/Projects'
 // import Skills from './sections/skills/Skills'
@@ -25,8 +25,8 @@ function App(){
         </section>
 
         {/* Education Section */}
-        <section id="education" className="min-h-screen">
-          {/* <Education /> */}
+        <section id="education">
+          <Education />
         </section>
 
         {/* Experience Section */}

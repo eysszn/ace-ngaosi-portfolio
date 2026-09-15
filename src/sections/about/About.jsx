@@ -1,12 +1,12 @@
-import { Mail, Download } from 'lucide-react'
-import { SiGithub, SiReact, SiJavascript, SiNodedotjs, SiMysql, SiFigma } from 'react-icons/si'
+import { Mail, Download, Database } from 'lucide-react'
+import { SiGithub, SiReact, SiJavascript, SiNodedotjs, SiFigma } from 'react-icons/si'
 import { FaLinkedin } from "react-icons/fa"
 
 const tools = [
   { icon: SiReact, label: 'React' },
   { icon: SiJavascript, label: 'JavaScript' },
   { icon: SiNodedotjs, label: 'Node.js' },
-  { icon: SiMysql, label: 'Databases' },
+  { icon: Database, label: 'Databases' },
   { icon: SiFigma, label: 'Figma' },
 ]
 
@@ -41,10 +41,10 @@ export default function About() {
                 Hey there! I'm Alfred Christian Emmanuel Ngaosi, but most people call me Ace. I'm an IT graduate based in Baguio City, driven by genuine curiosity about how things work behind the scenes — whether that's a React frontend, a database schema, or a machine learning model working to predict the future. I build software that solves real-world problems, and I care as much about the process as the outcome: clean documentation, thoughtful architecture, and experiences that users actually enjoy.
               </p>
               <p>
-                I've always chased consistency over sudden bursts of brilliance — steady effort, incremental improvement, and showing up day after day. That mindset shapes how I approach every project I take on, from the first line of code to the final polish.
+                I've always chased consistency over sudden bursts of brilliance: steady effort, incremental improvement, and showing up day after day. That mindset shapes how I approach every project I take on, from the first line of code to the final touches.
               </p>
               <p>
-                Outside the industry, I'm usually losing myself in music or a good game, or spending time with the people who matter most to me. If you'd like to talk shop — or anything else — feel free to reach out.
+                Outside the industry, I'm usually losing myself in music or a good game, or spending time with the people who matter most to me. If you'd like to start a conversation, feel free to reach out!
               </p>
             </div>
           </div>
