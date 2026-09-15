@@ -5,7 +5,7 @@ export default function Education() {
   return (
     <section
       id="education"
-      className="py-24 px-8 md:px-16 bg-[var(--color-bg-light)] dark:bg-[var(--color-bg-dark)] text-[var(--color-text-light)] dark:text-[var(--color-text-dark)]"
+      className="py-12 px-8 md:px-16 bg-[var(--color-bg-light)] dark:bg-[var(--color-bg-dark)] text-[var(--color-text-light)] dark:text-[var(--color-text-dark)]"
     >
       {/* Main Div */}
       <div>
@@ -75,7 +75,7 @@ export default function Education() {
                   </span>
                   <span className="w-px h-3 bg-[var(--color-bg-light)]/40" />
                   <span className="text-xs font-semibold text-[var(--color-bg-light)] flex items-center gap-1">
-                    Read article <ExternalLink size={11}/>
+                    <ExternalLink size={11}/>
                   </span>
                 </a>
               </div>
