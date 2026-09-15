@@ -3,10 +3,7 @@ import SectionHeader from "../../components/SectionHeader";
 
 export default function Education() {
   return (
-    <section
-      id="education"
-      className="py-12 px-8 md:px-16 bg-[var(--color-bg-light)] dark:bg-[var(--color-bg-dark)] text-[var(--color-text-light)] dark:text-[var(--color-text-dark)]"
-    >
+    <section className="py-12 px-8 md:px-16 bg-[var(--color-bg-light)] dark:bg-[var(--color-bg-dark)] text-[var(--color-text-light)] dark:text-[var(--color-text-dark)]">
       {/* Main Div */}
       <div>
         <SectionHeader>Education</SectionHeader>

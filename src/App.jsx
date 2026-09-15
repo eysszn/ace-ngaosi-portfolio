@@ -24,7 +24,7 @@ function App(){
         </section>
 
         {/* Education Section */}
-        <section id="education">
+        <section id="education" className="scroll-mt-[var(--navbar-height)]">
           <Education />
         </section>
 
