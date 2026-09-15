@@ -24,12 +24,12 @@ export default function Hero() {
       />
 
       {/* Left panel — no overflow-hidden, no nested accent shapes anymore */}
-      <div className="relative flex-1 md:flex-[0_0_65%] bg-[var(--color-bg-dark)] flex flex-col justify-center px-8 md:px-16 py-20">
-        <h1 className="font-[family-name:var(--font-hero)] flex flex-col font-black text-[7rem] sm:text-[8rem] md:text-[10rem] leading-[0.85] uppercase tracking-tighter">
+      <div className="relative flex-1 md:flex-[0_0_65%] bg-bg-light dark:bg-bg-dark flex flex-col justify-center px-8 md:px-16 py-20">
+        <h1 className="font-hero flex flex-col font-black text-[7rem] sm:text-[8rem] md:text-[10rem] leading-[0.85] uppercase tracking-tighter">
           <ShinyOutlineText text="Ace" />
           <ShinyOutlineText text="Ngaosi" />
         </h1>
-        <p className="ml-2 font-semibold text-[var(--color-accent)] text-lg md:text-3xl">
+        <p className="ml-2 font-semibold text-accent text-lg md:text-3xl">
           Aspiring Software Engineer
         </p>
       </div>

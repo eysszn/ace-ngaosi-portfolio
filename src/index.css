@@ -22,7 +22,6 @@
     font-family: var(--font-body);
     background-color: var(--color-bg-light);
     color: var(--color-text-dark);
-    transition: background-color 0.2s ease, color 0.2s ease;
   }
 
   .dark body {
@@ -38,6 +37,12 @@
 :root {
   /* default navbar height — adjust if your navbar differs */
   --navbar-height: 72px;
+}
+
+.theme-transition,
+.theme-transition * {
+  transition: background-color 0.25s ease, color 0.25s ease,
+    border-color 0.25s ease, fill 0.25s ease, stroke 0.25s ease !important;
 }
 
 /* Hero helpers: ensure the hero fits the viewport minus the navbar

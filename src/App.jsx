@@ -1,6 +1,6 @@
 import Navbar from './components/Navbar'
 import Hero from './sections/hero/Hero'
-// import About from './sections/about/About'
+import About from './sections/about/About'
 // import Education from './sections/education/Education'
 // import Experience from './sections/experience/Experience'
 // import Projects from './sections/projects/Projects'
@@ -21,7 +21,7 @@ function App(){
 
         {/* About Section  */}
         <section id="about" className="min-h-screen">
-          {/* <About /> */}
+          <About />
         </section>
 
         {/* Education Section */}

@@ -2,8 +2,8 @@
   position: relative;
   display: inline-block;
   color: transparent;
-  -webkit-text-stroke: 3px var(--color-text-light);
-  text-stroke: 3px var(--color-text-light);
+  -webkit-text-stroke: 3px var(--color-text-dark);
+  text-stroke: 3px var(--color-text-dark);
 }
 
 .outline-text::after {
@@ -12,9 +12,9 @@
   inset: 0;
 
   color: var(--color-accent);
-  -webkit-text-fill-color: var(--color-text-light);
-  -webkit-text-stroke: 2.5px var(--color-text-light);
-  text-stroke: 2.5px var(--color-text-light);
+  -webkit-text-fill-color: var(--color-text-dark);
+  -webkit-text-stroke: 2.5px var(--color-text-dark);
+  text-stroke: 2.5px var(--color-text-dark);
 
   -webkit-mask-image: linear-gradient(100deg, transparent 40%, black 50%, transparent 60%);
   mask-image: linear-gradient(100deg, transparent 30%, black 50%, transparent 70%);
@@ -25,6 +25,17 @@
 
   animation: shine-sweep 6s ease-in-out infinite;
   animation-delay: 1s;
+}
+
+.dark .outline-text {
+  -webkit-text-stroke-color: var(--color-text-light);
+  text-stroke-color: var(--color-text-light);
+}
+
+.dark .outline-text::after {
+  -webkit-text-fill-color: var(--color-text-light);
+  -webkit-text-stroke-color: var(--color-text-light);
+  text-stroke-color: var(--color-text-light);
 }
 
 .outline-text:hover::after {

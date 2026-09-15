@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useRef, useState, useLayoutEffect } from "react";
 
 export function useDarkMode() {
   const [isDark, setIsDark] = useState(() => {
@@ -7,8 +7,9 @@ export function useDarkMode() {
     if (stored) return stored === 'dark'
     return window.matchMedia('(prefers-color-scheme: dark)').matches
   })
+  const transitionTimeout = useRef(null)
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const root = document.documentElement
     if (isDark) {
       root.classList.add('dark')
@@ -19,5 +20,24 @@ export function useDarkMode() {
     }
   }, [isDark])
 
-  return [isDark, setIsDark]
+  const setTheme = (nextTheme) => {
+    const nextValue = typeof nextTheme === 'function' ? nextTheme(isDark) : nextTheme
+    const root = document.documentElement
+
+    root.classList.add('theme-transition')
+    root.classList.toggle('dark', nextValue)
+
+    if (transitionTimeout.current) {
+      window.clearTimeout(transitionTimeout.current)
+    }
+
+    transitionTimeout.current = window.setTimeout(() => {
+      root.classList.remove('theme-transition')
+      transitionTimeout.current = null
+    }, 250)
+
+    setIsDark(nextValue)
+  }
+
+  return [isDark, setTheme]
 }
