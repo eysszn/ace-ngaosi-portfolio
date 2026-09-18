@@ -14,9 +14,7 @@ export default function Education() {
 
           {/* Senior High Card */}
           <div className="relative flex-1 flex flex-col items-center">
-            <div className="w-8 h-8 rounded-full bg-[var(--color-accent-dark)] flex items-center justify-center z-10 mb-6">
-              <Landmark size={16} className="text-[var(--color-bg-light)]" />
-            </div>
+            <div className="w-8 h-8 rounded-full bg-[var(--color-accent-dark)] flex items-center justify-center z-10 mb-6" />
 
             <div className="w-full h-48 bg-black/5 dark:bg-white/5 rounded-xl p-6 flex flex-col items-center text-center">
               <p className="text-xs font-semibold text-[var(--color-text-dark)]/60 dark:text-[var(--color-text-light)]/60 mb-1.5">
@@ -39,9 +37,7 @@ export default function Education() {
 
           {/* College Card */}
           <div className="relative flex-1 flex flex-col items-center">
-            <div className="w-8 h-8 rounded-full bg-[var(--color-accent-dark)] flex items-center justify-center z-10 mb-6">
-              <GraduationCap size={16} className="text-[var(--color-bg-light)]" />
-            </div>
+            <div className="w-8 h-8 rounded-full bg-[var(--color-accent-dark)] flex items-center justify-center z-10 mb-6" />
 
             <div className="w-full h-48 bg-black/5 dark:bg-white/5 rounded-xl p-6 flex flex-col items-center text-center">
               <p className="text-xs font-semibold text-[var(--color-text-dark)]/60 dark:text-[var(--color-text-light)]/60 mb-1.5">
