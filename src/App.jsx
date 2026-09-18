@@ -4,8 +4,8 @@ import About from './sections/about/About'
 import Education from './sections/education/Education'
 import Experience from './sections/experience/Experience'
 import Projects from './sections/projects/Projects'
-// import Skills from './sections/skills/Skills'
-// import Contact from './sections/contact/Contact'
+import Skills from './sections/skills/Skills'
+import Contact from './sections/contact/Contact'
 
 function App(){
   return (
@@ -39,13 +39,13 @@ function App(){
         </section>
 
         {/* Skills Section  */}
-        <section id="skills" className="min-h-screen">
-          {/* <Skills /> */}
+        <section id="skills" className="scroll-mt-[var(--navbar-height)]">
+          <Skills />
         </section>
 
         {/* Contact Section */}
-        <section id="contact" className="min-h-screen">
-          {/* <Contact /> */}
+        <section id="contact" className="scroll-mt-[var(--navbar-height)]">
+          <Contact />
         </section>
 
       </main>
