@@ -24,7 +24,7 @@ export default function Navbar() {
           <Spade
           size={26}
             fill="currentColor"
-            className="text-[var(--color-text-dark)] dark:text-[var(--color-text-light)]"
+            className="text-[var(--color-accent-dark)] dark:text-[var(--color-accent)]"
           />
         </a>
 
