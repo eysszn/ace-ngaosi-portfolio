@@ -3,7 +3,7 @@ import Hero from './sections/hero/Hero'
 import About from './sections/about/About'
 import Education from './sections/education/Education'
 import Experience from './sections/experience/Experience'
-// import Projects from './sections/projects/Projects'
+import Projects from './sections/projects/Projects'
 // import Skills from './sections/skills/Skills'
 // import Contact from './sections/contact/Contact'
 
@@ -34,8 +34,8 @@ function App(){
         </section>
 
         {/* Projects Section */}
-        <section id="projects" className="min-h-screen">
-          {/* <Projects /> */}
+        <section id="projects" className="scroll-mt-[var(--navbar-height)]">
+          <Projects />
         </section>
 
         {/* Skills Section  */}
