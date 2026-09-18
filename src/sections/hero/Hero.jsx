@@ -36,7 +36,7 @@ export default function Hero() {
 
       {/* Photo */}
       <div className="relative flex-1 md:flex-[0_0_35%] min-h-[50vh] md:min-h-screen hero-photo">
-        <img src="/hero_photo.jpg" alt="Ace Ngaosi" className="object-top" />
+        <img src="/hero-photo.jpg" alt="Ace Ngaosi" className="object-top" />
       </div>
     </section>
   )

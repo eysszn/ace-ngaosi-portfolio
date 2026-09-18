@@ -23,7 +23,7 @@ export default function About() {
           <div className="absolute -top-2.5 -left-2.5 w-full h-full bg-accent-dark rounded-md" />
           <div className="relative aspect-3/4 rounded-md overflow-hidden">
             <img
-              src="/about_grad_photo.jpg"
+              src="/about-grad-photo.jpg"
               alt="Ace Ngaosi"
               className="w-full h-full object-cover"
             />
@@ -52,7 +52,7 @@ export default function About() {
           {/* Resume and Social Icons */}
           <div className="flex items-center gap-4">
             <a
-              href="/ace_ngaosi_resume.pdf"
+              href="/ace-ngaosi-resume.pdf"
               download
               className="flex items-center gap-2 px-4.5 py-2.5 rounded-lg bg-accent-dark text-bg-light text-sm font-semibold"
             >
