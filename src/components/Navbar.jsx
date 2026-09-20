@@ -19,10 +19,10 @@ export default function Navbar() {
     <header className="fixed top-0 left-0 right-0 z-50 border-b border-black/5 dark:border-white/5 bg-[var(--color-bg-light)]/90 dark:bg-[var(--color-bg-dark)]/90 text-[var(--color-text-dark)] dark:text-[var(--color-text-light)] backdrop-blur-sm">
       <nav className="max-w-5xl mx-auto flex items-center justify-between px-6 py-4 text-[var(--color-text-dark)] dark:text-[var(--color-text-light)]">
         {/* Initials */}
-        <a href="#top" className="font-[family-name:var(--font-hero)] flex items-center gap-1.5 text-2xl font-semibold text-[var(--color-text-dark)] dark:text-[var(--color-text-light)]">
+        <a href="#top" className="font-[family-name:var(--font-heading)] flex items-center gap-1.5 text-2xl font-bold text-[var(--color-text-dark)] dark:text-[var(--color-text-light)]">
           Ace
           <Spade
-          size={26}
+            size={26}
             fill="currentColor"
             className="text-[var(--color-accent-dark)] dark:text-[var(--color-accent)]"
           />
@@ -34,7 +34,7 @@ export default function Navbar() {
             <a
               key={link.href}
               href={link.href}
-              className="text-sm text-[var(--color-text-dark)] hover:text-[var(--color-accent)] transition-colors dark:text-[var(--color-text-light)]"
+              className="text-sm  text-[var(--color-text-dark)] hover:text-[var(--color-accent)] transition-colors dark:text-[var(--color-text-light)]"
             >
               {link.label}
             </a>

@@ -3,8 +3,8 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
---font-heading: "Space Grotesk", sans-serif;
---font-body: "inter", sans-serif;
+--font-heading: "Sora", sans-serif;
+--font-body: "Inter", sans-serif;
 --font-hero: "Archivo", sans-serif;
 
 --color-accent: #14b8a6;
@@ -15,6 +15,10 @@
 
 --color-text-light: #e5e7eb;
 --color-text-dark: #1a1d23;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 @layer base {
