@@ -32,6 +32,23 @@ export default function Hero() {
         <p className="ml-2 font-semibold text-accent text-lg md:text-3xl">
           Aspiring Software Engineer
         </p>
+
+        {/* CTA Buttons */}
+        <div className="flex gap-4 mt-16">
+          <a
+            href="#about"
+            className="px-6 py-3 rounded-lg bg-[var(--color-accent-dark)] text-[var(--color-bg-light)] text-lg font-semibold hover:opacity-90 transition-opacity"
+          >
+            Get to know me!
+          </a>
+
+          <a
+            href="#contact"
+            className="px-6 py-3 rounded-lg border border-[var(--color-accent)] text-[var(--color-accent)] text-lg font-semibold hover:bg-[var(--color-accent)]/10 transition-colors"
+          >
+            Reach me here!
+          </a>
+        </div>
       </div>
 
       {/* Photo */}
