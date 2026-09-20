@@ -1,6 +1,7 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Sun, Moon, Spade } from 'lucide-react'
 import { useDarkMode } from '../hooks/useDarkMode'
+import { useActiveSection } from '../hooks/useActiveSection'
 
 const links = [
   { label: 'About', href: '#about' },
@@ -8,17 +9,35 @@ const links = [
   { label: 'Experience', href: '#experience' },
   { label: 'Projects', href: '#projects' },
   { label: 'Skills', href: '#skills' },
-  { label: 'Contact', href: '#contact' }
+  { label: 'Contact', href: '#contact' },
 ]
+const sectionIds = links.map((link) => link.href.slice(1))
 
 export default function Navbar() {
   const [isDark, setIsDark] = useDarkMode()
   const [open, setOpen] = useState(false)
+  const activeId = useActiveSection(sectionIds)
+
+  useEffect(() => {
+    if (activeId) {
+      window.history.replaceState(null, '', `#${activeId}`)
+    }
+  }, [activeId])
+
+  const handleNavClick = (e, href) => {
+    e.preventDefault()
+    const id = href.slice(1)
+    const el = document.getElementById(id)
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' })
+      window.history.pushState(null, '', href)
+    }
+    setOpen(false)
+  }
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 border-b border-black/5 dark:border-white/5 bg-[var(--color-bg-light)]/90 dark:bg-[var(--color-bg-dark)]/90 text-[var(--color-text-dark)] dark:text-[var(--color-text-light)] backdrop-blur-sm">
-      <nav className="max-w-5xl mx-auto flex items-center justify-between px-6 py-4 text-[var(--color-text-dark)] dark:text-[var(--color-text-light)]">
-        {/* Initials */}
+    <header className="fixed top-0 left-0 right-0 z-50 border-b border-black/5 dark:border-white/5 bg-[var(--color-bg-light)]/90 dark:bg-[var(--color-bg-dark)]/90 backdrop-blur-sm">
+      <nav className="max-w-5xl mx-auto flex items-center justify-between px-6 py-4">
         <a href="#top" className="font-[family-name:var(--font-heading)] flex items-center gap-1.5 text-2xl font-bold text-[var(--color-text-dark)] dark:text-[var(--color-text-light)]">
           Ace
           <Spade
@@ -28,17 +47,24 @@ export default function Navbar() {
           />
         </a>
 
-        {/* Links */}
         <div className="hidden md:flex items-center gap-8">
-          {links.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="text-sm  text-[var(--color-text-dark)] hover:text-[var(--color-accent)] transition-colors dark:text-[var(--color-text-light)]"
-            >
-              {link.label}
-            </a>
-          ))}
+          {links.map((link) => {
+            const isActive = activeId === link.href.slice(1)
+            return (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={(e) => handleNavClick(e, link.href)}
+                aria-current={isActive ? 'location' : undefined}
+                className={`text-sm transition-colors ${isActive
+                  ? 'text-[var(--color-accent)] font-semibold underline underline-offset-4'
+                  : 'text-[var(--color-text-dark)] dark:text-[var(--color-text-light)] hover:text-[var(--color-accent)]'
+                  }`}
+              >
+                {link.label}
+              </a>
+            )
+          })}
           <button
             onClick={() => setIsDark(!isDark)}
             aria-label="Toggle dark mode"
@@ -61,21 +87,25 @@ export default function Navbar() {
 
       {open && (
         <div className="md:hidden flex flex-col gap-4 px-6 pb-6">
-          {links.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              onClick={() => setOpen(false)}
-              className="text-sm text-[var(--color-text-dark)] hover:text-[var(--color-accent)] transition-colors dark:text-[var(--color-text-light)]"
-            >
-              {link.label}
-            </a>
-          ))}
-          <button
-            onClick={() => setIsDark(!isDark)}
-            className="text-sm text-left"
-          >
-            {isDark ? <Sun /> : <Moon />}
+          {links.map((link) => {
+            const isActive = activeId === link.href.slice(1)
+            return (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={(e) => handleNavClick(e, link.href)}
+                aria-current={isActive ? 'location' : undefined}
+                className={`text-sm transition-colors ${isActive
+                  ? 'text-[var(--color-accent)] font-semibold'
+                  : 'text-[var(--color-text-dark)] dark:text-[var(--color-text-light)] hover:text-[var(--color-accent)]'
+                  }`}
+              >
+                {link.label}
+              </a>
+            )
+          })}
+          <button onClick={() => setIsDark(!isDark)} className="text-sm text-left">
+            {isDark ? 'Light mode' : 'Dark mode'}
           </button>
         </div>
       )}
