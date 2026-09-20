@@ -28,7 +28,7 @@ export default function Experience() {
   return (
     <section
       id="experience"
-      className="py-24 px-8 md:px-16 bg-[var(--color-bg-light)] dark:bg-[var(--color-bg-dark)] text-[var(--color-text-dark)] dark:text-[var(--color-text-light)]"
+      className="min-h-screen py-24 px-8 md:px-16 bg-[var(--color-bg-light)] dark:bg-[var(--color-bg-dark)] text-[var(--color-text-dark)] dark:text-[var(--color-text-light)]"
     >
       <div>
         <SectionHeader>Experience</SectionHeader>

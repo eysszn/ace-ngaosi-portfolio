@@ -2,13 +2,13 @@ import ShinyOutlineText from '../../components/ShinyOutlineText/ShinyOutlineText
 
 export default function Hero() {
   return (
-    <section id="hero" className="hero-section relative flex flex-col md:flex-row w-full overflow-hidden">
+    <section id="hero" className="hero-section min-h-screen pt-18 relative flex flex-col md:flex-row w-full overflow-hidden">
       <div
         className="hidden md:block absolute top-0 z-20 h-2"
         style={{
           left: '20%',
           width: '100%',
-          top: '2.5%',
+          top: '11%',
           background: 'var(--color-accent)',
           clipPath: 'polygon(2% 0, 100% 0, 88% 100%, 0% 100%)'
         }}
@@ -23,7 +23,7 @@ export default function Hero() {
         }}
       />
 
-      {/* Left panel — no overflow-hidden, no nested accent shapes anymore */}
+      {/* Left panel*/}
       <div className="relative flex-1 md:flex-[0_0_65%] bg-bg-light dark:bg-bg-dark flex flex-col justify-center px-8 md:px-16 py-20">
         <h1 className="font-hero flex flex-col font-black text-[7rem] sm:text-[8rem] md:text-[10rem] leading-[0.85] uppercase tracking-tighter">
           <ShinyOutlineText text="Ace" />

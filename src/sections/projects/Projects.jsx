@@ -34,7 +34,7 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="flex flex-col justify-center px-8 md:px-16 bg-[var(--color-bg-light)] dark:bg-[var(--color-bg-dark)] text-[var(--color-text-dark)] dark:text-[var(--color-text-light)]"
+      className="scroll-mt-[var(--navbar-height)] flex flex-col justify-center px-8 md:px-16 bg-[var(--color-bg-light)] dark:bg-[var(--color-bg-dark)] text-[var(--color-text-dark)] dark:text-[var(--color-text-light)]"
     >
       <div className="max-w-7xl mx-auto w-full">
         <SectionHeader>Projects</SectionHeader>

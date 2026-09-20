@@ -1,9 +1,9 @@
-import { GraduationCap, Landmark, Award, Trophy, ExternalLink } from "lucide-react";
+import { Award, Trophy, ExternalLink } from "lucide-react";
 import SectionHeader from "../../components/SectionHeader";
 
 export default function Education() {
   return (
-    <section className="py-12 px-8 md:px-16 bg-[var(--color-bg-light)] dark:bg-[var(--color-bg-dark)] text-[var(--color-text-light)] dark:text-[var(--color-text-dark)]">
+    <section id="education" className="py-12 px-8 md:px-16 bg-[var(--color-bg-light)] dark:bg-[var(--color-bg-dark)] text-[var(--color-text-light)] dark:text-[var(--color-text-dark)] scroll-mt-[var(--navbar-height)]">
       {/* Main Div */}
       <div>
         <SectionHeader>Education</SectionHeader>

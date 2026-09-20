@@ -12,43 +12,15 @@ function App(){
   return (
     <div id="top" className="min-h-screen">
       <Navbar />
-      {/* Hero Section */}
-      <section id="hero" className="min-h-screen pt-18">
-        <Hero />
-      </section>
+      <Hero />
 
       <main className="max-w-7xl mx-auto px-6 pt-24">
-
-        {/* About Section  */}
-        <section id="about" className="min-h-screen">
-          <About />
-        </section>
-
-        {/* Education Section */}
-        <section id="education" className="scroll-mt-[var(--navbar-height)]">
-          <Education />
-        </section>
-
-        {/* Experience Section */}
-        <section id="experience" className="min-h-screen">
-          <Experience />
-        </section>
-
-        {/* Projects Section */}
-        <section id="projects" className="scroll-mt-[var(--navbar-height)]">
-          <Projects />
-        </section>
-
-        {/* Skills Section  */}
-        <section id="skills" className="scroll-mt-[var(--navbar-height)]">
-          <Skills />
-        </section>
-
-        {/* Contact Section */}
-        <section id="contact" className="scroll-mt-[var(--navbar-height)]">
-          <Contact />
-        </section>
-
+        <About />
+        <Education />
+        <Experience />
+        <Projects />
+        <Skills />
+        <Contact />
         <Footer />
       </main>
     </div>

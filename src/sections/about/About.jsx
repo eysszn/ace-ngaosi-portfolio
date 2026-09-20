@@ -14,7 +14,7 @@ export default function About() {
   return (
     <section
       id="about"
-      className="h-screen flex items-center px-8 md:px-16 bg-bg-light dark:bg-bg-dark text-text-dark dark:text-text-light"
+      className="min-h-screen flex items-center px-8 md:px-16 bg-bg-light dark:bg-bg-dark text-text-dark dark:text-text-light"
     >
       <div className="flex gap-8 w-full max-w-7xl mx-auto items-center">
 

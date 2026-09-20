@@ -42,7 +42,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="py-24 px-8 md:px-16 bg-[var(--color-bg-light)] dark:bg-[var(--color-bg-dark)] text-[var(--color-text-dark)] dark:text-[var(--color-text-light)]"
+      className="scroll-mt-[var(--navbar-height)] py-24 px-8 md:px-16 bg-[var(--color-bg-light)] dark:bg-[var(--color-bg-dark)] text-[var(--color-text-dark)] dark:text-[var(--color-text-light)]"
     >
       <div className="max-w-4xl mx-auto">
         <SectionHeader>Contact</SectionHeader>
