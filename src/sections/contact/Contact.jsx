@@ -42,7 +42,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="scroll-mt-[var(--navbar-height)] py-24 px-8 md:px-16 bg-[var(--color-bg-light)] dark:bg-[var(--color-bg-dark)] text-[var(--color-text-dark)] dark:text-[var(--color-text-light)]"
+      className="scroll-mt-[var(--navbar-height)] pt-15 pb-20 px-8 md:px-16 bg-[var(--color-bg-light)] dark:bg-[var(--color-bg-dark)] text-[var(--color-text-dark)] dark:text-[var(--color-text-light)]"
     >
       <div className="max-w-4xl mx-auto">
         <SectionHeader>Contact</SectionHeader>
@@ -51,9 +51,9 @@ export default function Contact() {
           {contacts.map(({ label, description, cta, icon: Icon, href, external }) => (
             <div
               key={label}
-              className="relative bg-black/5 dark:bg-white/5 rounded-xl p-8 min-h-56 flex flex-col justify-end"
+              className="relative bg-black/5 dark:bg-white/5 rounded-xl p-6 min-h-44 flex flex-col justify-end"
             >
-              <Icon size={38} className="absolute top-8 right-8 text-[var(--color-accent)]" />
+              <Icon size={32} className="absolute top-6 right-6 text-[var(--color-accent)]" />
               
               <div className="mb-2 pr-12">
                 <span className="font-bold text-xl">{label}</span>
