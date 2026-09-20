@@ -65,13 +65,15 @@ export default function Navbar() {
               </a>
             )
           })}
-          <button
+          {/* TO DO: FIX LIGHT MODE VARIATION  */}
+
+          {/* <button
             onClick={() => setIsDark(!isDark)}
             aria-label="Toggle dark mode"
             className="w-9 h-9 flex items-center justify-center rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors"
           >
             {isDark ? <Sun /> : <Moon />}
-          </button>
+          </button> */}
         </div>
 
         <button
