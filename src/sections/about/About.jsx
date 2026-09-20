@@ -1,11 +1,11 @@
 import { Mail, Download, Database } from 'lucide-react'
-import { SiGithub, SiReact, SiJavascript, SiNodedotjs, SiFigma } from 'react-icons/si'
+import { SiGithub, SiReact, SiJavascript, SiExpress, SiFigma } from 'react-icons/si'
 import { FaLinkedin } from "react-icons/fa"
 
 const tools = [
   { icon: SiReact, label: 'React' },
   { icon: SiJavascript, label: 'JavaScript' },
-  { icon: SiNodedotjs, label: 'Node.js' },
+  { icon: SiExpress, label: 'Express.js' },
   { icon: Database, label: 'Databases' },
   { icon: SiFigma, label: 'Figma' },
 ]
