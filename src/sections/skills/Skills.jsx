@@ -1,55 +1,23 @@
-import { Code, Server, Database, Wrench } from 'lucide-react';
+import { Code, Server, Database, Wrench, Monitor } from 'lucide-react';
 import {
-  FaCss3Alt,
-  FaDocker,
-  FaFigma,
-  FaGitAlt,
-  FaGithub,
-  FaHtml5,
-  FaJava,
-  FaJs,
-  FaNodeJs,
-  FaPython,
-  FaReact,
-  FaWordpress,
+  FaCss3Alt, FaDocker, FaFigma, FaGitAlt, FaGithub, FaHtml5,
+  FaJava, FaJs, FaNodeJs, FaPython, FaReact, FaWordpress,
+  FaApple, FaWindows, FaUbuntu
 } from 'react-icons/fa';
 import {
-  SiDotnet,
-  SiExpress,
-  SiJsonwebtokens,
-  SiMysql,
-  SiNextdotjs,
-  SiPostgresql,
-  SiTailwindcss,
-  SiVite,
+  SiDotnet, SiExpress, SiJsonwebtokens, SiMysql,
+  SiNextdotjs, SiPostgresql, SiTailwindcss, SiVite,
 } from 'react-icons/si';
 import { TbApi, TbBrandVscode, TbBrandCSharp } from 'react-icons/tb';
 import SectionHeader from '../../components/SectionHeader';
+import SkillCard from './SkillCard';
 
 const skillIcons = {
-  FaJs,
-  FaReact,
-  SiNextdotjs,
-  SiTailwindcss,
-  FaHtml5,
-  FaCss3Alt,
-  SiVite,
-  FaNodeJs,
-  FaPython,
-  SiExpress,
-  FaJava,
-  TbBrandCSharp,
-  SiDotnet,
-  SiJsonwebtokens,
-  TbApi,
-  SiPostgresql,
-  SiMysql,
-  FaDocker,
-  FaGitAlt,
-  FaGithub,
-  FaFigma,
-  FaWordpress,
-  TbBrandVscode,
+  FaJs, FaReact, SiNextdotjs, SiTailwindcss, FaHtml5,
+  FaCss3Alt, SiVite, FaNodeJs, FaPython, SiExpress,
+  FaJava, TbBrandCSharp, SiDotnet, SiJsonwebtokens, TbApi,
+  SiPostgresql, SiMysql, FaDocker, FaGitAlt, FaGithub,
+  FaFigma, FaWordpress, TbBrandVscode, FaApple, FaWindows, FaUbuntu
 };
 
 const categories = [
@@ -57,12 +25,12 @@ const categories = [
     label: 'Frontend',
     icon: Code,
     skills: [
-      { name: 'JavaScript', icon: 'FaJs' },
-      { name: 'React', icon: 'FaReact' },
-      { name: 'Next.js', icon: 'SiNextdotjs' },
-      { name: 'Tailwind CSS', icon: 'SiTailwindcss' },
       { name: 'HTML', icon: 'FaHtml5' },
       { name: 'CSS', icon: 'FaCss3Alt' },
+      { name: 'React', icon: 'FaReact' },
+      { name: 'JavaScript', icon: 'FaJs' },
+      { name: 'Tailwind CSS', icon: 'SiTailwindcss' },
+      { name: 'Next.js', icon: 'SiNextdotjs' },
       { name: 'Vite', icon: 'SiVite' },
     ],
   },
@@ -71,12 +39,12 @@ const categories = [
     icon: Server,
     skills: [
       { name: 'Node.js', icon: 'FaNodeJs' },
-      { name: 'Python', icon: 'FaPython' },
-      { name: 'Express.js', icon: 'SiExpress' },
-      { name: 'Java', icon: 'FaJava' },
       { name: 'C#', icon: 'TbBrandCSharp' },
-      { name: 'ASP.NET', icon: 'SiDotnet' },
+      { name: 'Python', icon: 'FaPython' },
+      { name: 'Java', icon: 'FaJava' },
       { name: 'JWT', icon: 'SiJsonwebtokens' },
+      { name: 'ASP.NET', icon: 'SiDotnet' },
+      { name: 'Express.js', icon: 'SiExpress' },
       { name: 'REST API', icon: 'TbApi' },
     ],
   },
@@ -100,45 +68,47 @@ const categories = [
       { name: 'VS Code', icon: 'TbBrandVscode' },
     ],
   },
+  {
+    label: 'Operating Systems',
+    icon: Monitor,
+    skills: [
+      { name: 'Apple', icon: 'FaApple' },
+      { name: 'Windows', icon: 'FaWindows' },
+      { name: 'Ubuntu', icon: 'FaUbuntu' },
+    ],
+  },
 ]
 
 export default function Skills() {
+  const firstRow = categories.slice(0, 3);
+  const secondRow = categories.slice(3);
+
   return (
     <section
       id="skills"
       className="py-24 px-8 md:px-16 bg-[var(--color-bg-light)] dark:bg-[var(--color-bg-dark)] text-[var(--color-text-dark)] dark:text-[var(--color-text-light)]"
     >
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-7xl mx-auto">
         <SectionHeader>Skills</SectionHeader>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {categories.map(({ label, icon: Icon, skills }) => (
-            <div
-              key={label}
-              className="bg-black/5 dark:bg-white/5 rounded-xl p-5"
-            >
-              <div className="flex items-center gap-3 mb-3.5">
-                <Icon size={20} className="text-[var(--color-accent)]" />
-                <span className="font-bold text-xl">{label}</span>
+        <div className="flex flex-col gap-4">
+          <div className="flex flex-col items-stretch md:flex-row gap-4">
+            {firstRow.map((cat) => (
+              <div key={cat.label} className="flex flex-1">
+                <SkillCard {...cat} skillIcons={skillIcons} />
               </div>
-              <div className="flex flex-wrap gap-3.5">
-                {skills.map(({ name, icon }) => {
-                  const SkillIcon = skillIcons[icon];
+            ))}
+          </div>
 
-                  return (
-                  <span
-                    key={name}
-                    className="flex items-center justify-between gap-3 text-[14px] bg-[var(--color-bg-light)] dark:bg-[var(--color-bg-dark)] rounded px-2.5 py-1.5"
-                  >
-                    <span>{name}</span>
-                    {SkillIcon && <SkillIcon  size={20} />}
-                  </span>
-                  );
-                })}
+          <div className="flex flex-col items-stretch md:flex-row justify-center gap-4">
+            {secondRow.map((cat) => (
+              <div key={cat.label} className="flex w-full md:w-[calc((100%-3rem)/3)]">
+                <SkillCard {...cat} skillIcons={skillIcons} />
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
+
       </div>
     </section>
   )
