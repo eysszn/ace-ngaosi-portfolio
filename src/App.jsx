@@ -6,6 +6,7 @@ import Experience from './sections/experience/Experience'
 import Projects from './sections/projects/Projects'
 import Skills from './sections/skills/Skills'
 import Contact from './sections/contact/Contact'
+import Footer from './components/Footer'
 
 function App(){
   return (
@@ -48,6 +49,7 @@ function App(){
           <Contact />
         </section>
 
+        <Footer />
       </main>
     </div>
   )
