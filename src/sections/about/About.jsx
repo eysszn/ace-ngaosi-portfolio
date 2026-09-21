@@ -1,4 +1,4 @@
-import { Mail, Download, Database } from 'lucide-react'
+import { Mail, Database, MoveUpRight } from 'lucide-react'
 import { SiGithub, SiReact, SiJavascript, SiExpress, SiFigma } from 'react-icons/si'
 import { FaLinkedin } from "react-icons/fa"
 
@@ -52,12 +52,12 @@ export default function About() {
           {/* Resume and Social Icons */}
           <div className="flex items-center gap-4">
             <a
-              href="/ace-ngaosi-resume.pdf"
-              download
+              href="https://drive.google.com/file/d/1LKxvEnnYemySJd2LtF7N6bArttHLZXWD/view?usp=drive_link"
+              target="_blank"
               className="flex items-center gap-2 px-4.5 py-2.5 rounded-lg bg-accent-dark text-bg-light text-sm font-semibold"
             >
-              <Download />
               Check out my Resume!
+              <MoveUpRight size={16} />
             </a>
 
             <span className="text-text-dark/30 dark:text-text-light/30 font-light text-lg">|</span>
