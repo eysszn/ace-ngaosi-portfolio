@@ -52,7 +52,7 @@ export default function About() {
           {/* Resume and Social Icons */}
           <div className="flex items-center gap-4">
             <a
-              href="https://drive.google.com/file/d/1LKxvEnnYemySJd2LtF7N6bArttHLZXWD/view?usp=drive_link"
+              href="https://drive.google.com/file/d/1s7Gv54XBRtG8_8tolDrJs1Po3-em5_20/view"
               target="_blank"
               className="flex items-center gap-2 px-4.5 py-2.5 rounded-lg bg-accent-dark text-bg-light text-sm font-semibold"
             >
