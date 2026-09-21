@@ -2,7 +2,7 @@ import { Code, Server, Database, Wrench, Monitor } from 'lucide-react';
 import {
   FaCss3Alt, FaDocker, FaFigma, FaGitAlt, FaGithub, FaHtml5,
   FaJava, FaJs, FaNodeJs, FaPython, FaReact, FaWordpress,
-  FaApple, FaWindows, FaUbuntu
+  FaApple, FaWindows, FaUbuntu, FaPhp
 } from 'react-icons/fa';
 import {
   SiDotnet, SiExpress, SiJsonwebtokens, SiMysql,
@@ -16,7 +16,7 @@ const skillIcons = {
   FaJs, FaReact, SiNextdotjs, SiTailwindcss, FaHtml5,
   FaCss3Alt, SiVite, FaNodeJs, FaPython, SiExpress,
   FaJava, TbBrandCSharp, SiDotnet, SiJsonwebtokens, TbApi,
-  SiPostgresql, SiMysql, FaDocker, FaGitAlt, FaGithub,
+  FaPhp, SiPostgresql, SiMysql, FaDocker, FaGitAlt, FaGithub,
   FaFigma, FaWordpress, TbBrandVscode, FaApple, FaWindows, FaUbuntu
 };
 
@@ -46,6 +46,7 @@ const categories = [
       { name: 'ASP.NET', icon: 'SiDotnet' },
       { name: 'Express.js', icon: 'SiExpress' },
       { name: 'REST API', icon: 'TbApi' },
+      { name: 'PHP', icon: 'FaPhp' },
     ],
   },
   {
