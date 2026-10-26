@@ -1,13 +1,12 @@
-import { useRef, useState, useLayoutEffect } from "react";
+import { useState, useLayoutEffect } from "react";
+import { flushSync } from "react-dom";
 
 export function useDarkMode() {
   const [isDark, setIsDark] = useState(() => {
     if (typeof window === 'undefined') return false
-    const stored = localStorage.getItem('theme')
-    if (stored) return stored === 'dark'
-    return window.matchMedia('(prefers-color-scheme: dark)').matches
+    // dark by default; light only if the visitor picked it
+    return localStorage.getItem('theme') !== 'light'
   })
-  const transitionTimeout = useRef(null)
 
   useLayoutEffect(() => {
     const root = document.documentElement
@@ -24,19 +23,24 @@ export function useDarkMode() {
     const nextValue = typeof nextTheme === 'function' ? nextTheme(isDark) : nextTheme
     const root = document.documentElement
 
-    root.classList.add('theme-transition')
-    root.classList.toggle('dark', nextValue)
-
-    if (transitionTimeout.current) {
-      window.clearTimeout(transitionTimeout.current)
+    // swap everything in a single frame so no element changes ahead of the others
+    const swap = () => {
+      root.classList.toggle('dark', nextValue)
+      flushSync(() => setIsDark(nextValue))
     }
 
-    transitionTimeout.current = window.setTimeout(() => {
-      root.classList.remove('theme-transition')
-      transitionTimeout.current = null
-    }, 250)
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    if (document.startViewTransition && !reduceMotion) {
+      // the browser cross-fades a snapshot of the old page into the new one
+      document.startViewTransition(swap)
+      return
+    }
 
-    setIsDark(nextValue)
+    // fallback: switch instantly with per-element transitions paused
+    root.classList.add('theme-switching')
+    swap()
+    root.getBoundingClientRect() // commit the new styles before transitions resume
+    requestAnimationFrame(() => root.classList.remove('theme-switching'))
   }
 
   return [isDark, setTheme]
