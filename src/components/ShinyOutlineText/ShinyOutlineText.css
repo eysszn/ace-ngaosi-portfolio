@@ -38,6 +38,17 @@
   text-stroke-color: var(--color-text-light);
 }
 
+/* thinner outline so small-screen letters don't fill in */
+@media (max-width: 639px) {
+  .outline-text {
+    -webkit-text-stroke-width: 2px;
+  }
+
+  .outline-text::after {
+    -webkit-text-stroke-width: 1.5px;
+  }
+}
+
 .outline-text:hover::after {
   animation-play-state: paused;
 }

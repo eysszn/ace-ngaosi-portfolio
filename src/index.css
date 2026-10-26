@@ -9,6 +9,7 @@
 
 --color-accent: #14b8a6;
 --color-accent-dark: #0d9488;
+--color-accent-bright: #14b8a6;
 
 --color-bg-light: #f7f5f0;
 --color-bg-dark: #0b1120;
@@ -23,6 +24,7 @@ html {
 
 @layer base {
   body {
+    overflow-x: clip;
     font-family: var(--font-body);
     background-color: var(--color-bg-light);
     color: var(--color-text-dark);
@@ -41,18 +43,46 @@ html {
 :root {
   /* default navbar height — adjust if your navbar differs */
   --navbar-height: 72px;
+  color-scheme: light;
 }
 
-.theme-transition,
-.theme-transition * {
-  transition: background-color 0.25s ease, color 0.25s ease,
-    border-color 0.25s ease, fill 0.25s ease, stroke 0.25s ease !important;
+/* the bright teal is too faint as text on the light background (~2.5:1),
+   so light mode swaps in a deeper teal (~5:1) */
+:root:not(.dark) {
+  --color-accent: #0f766e;
+}
+
+.dark {
+  color-scheme: dark;
+}
+
+::selection {
+  background-color: color-mix(in srgb, var(--color-accent-bright) 35%, transparent);
+}
+
+/* Theme switch: the whole page cross-fades as one snapshot (see useDarkMode),
+   so every shape, outline and pseudo-element changes at the same moment */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.3s;
+  animation-timing-function: ease-out;
+}
+
+/* fallback switch: pause element transitions so nothing lags behind */
+.theme-switching,
+.theme-switching *,
+.theme-switching *::before,
+.theme-switching *::after {
+  transition: none !important;
 }
 
 /* Hero helpers: ensure the hero fits the viewport minus the navbar
-   and apply a diagonal clip to the photo on larger screens */
-.hero-section {
-  height: calc(100vh - var(--navbar-height));
+   and apply a diagonal clip to the photo on larger screens.
+   Below lg the hero stacks, so its height follows its content. */
+@media (min-width: 1024px) {
+  .hero-section {
+    height: calc(100vh - var(--navbar-height));
+  }
 }
 
 .hero-photo {
@@ -69,8 +99,16 @@ html {
   object-position: top center;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .hero-photo {
     clip-path: polygon(32% 0, 100% 0, 100% 100%, 0% 100%);
+  }
+}
+
+/* Projects: details for the newly selected project settle in */
+@keyframes project-swap {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
   }
 }

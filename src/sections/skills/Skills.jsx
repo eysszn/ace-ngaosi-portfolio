@@ -10,7 +10,7 @@ import {
 } from 'react-icons/si';
 import { TbApi, TbBrandVscode, TbBrandCSharp } from 'react-icons/tb';
 import SectionHeader from '../../components/SectionHeader';
-import SkillCard from './SkillCard';
+import SkillRow from './SkillRow';
 
 const skillIcons = {
   FaJs, FaReact, SiNextdotjs, SiTailwindcss, FaHtml5,
@@ -81,34 +81,19 @@ const categories = [
 ]
 
 export default function Skills() {
-  const firstRow = categories.slice(0, 3);
-  const secondRow = categories.slice(3);
-
   return (
     <section
       id="skills"
-      className="py-24 px-8 md:px-16 bg-[var(--color-bg-light)] dark:bg-[var(--color-bg-dark)] text-[var(--color-text-dark)] dark:text-[var(--color-text-light)]"
+      className="py-12 md:py-24 sm:px-4 md:px-8 lg:px-16 scroll-mt-[var(--navbar-height)] bg-[var(--color-bg-light)] dark:bg-[var(--color-bg-dark)] text-[var(--color-text-dark)] dark:text-[var(--color-text-light)]"
     >
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-5xl mx-auto">
         <SectionHeader>Skills</SectionHeader>
 
-        <div className="flex flex-col gap-4">
-          <div className="flex flex-col items-stretch md:flex-row gap-4">
-            {firstRow.map((cat) => (
-              <div key={cat.label} className="flex flex-1">
-                <SkillCard {...cat} skillIcons={skillIcons} />
-              </div>
-            ))}
-          </div>
-
-          <div className="flex flex-col items-stretch md:flex-row justify-center gap-4">
-            {secondRow.map((cat) => (
-              <div key={cat.label} className="flex w-full md:w-[calc((100%-3rem)/3)]">
-                <SkillCard {...cat} skillIcons={skillIcons} />
-              </div>
-            ))}
-          </div>
-        </div>
+        <ul className="border-t border-[var(--color-text-dark)]/10 dark:border-[var(--color-text-light)]/10">
+          {categories.map((cat) => (
+            <SkillRow key={cat.label} {...cat} skillIcons={skillIcons} />
+          ))}
+        </ul>
 
       </div>
     </section>

@@ -1,29 +1,29 @@
-import { useEffect, useState } from 'react'
+import { lazy, Suspense, useEffect, useState } from 'react'
 import Navbar from './components/Navbar'
 import Hero from './sections/hero/Hero'
-import About from './sections/about/About'
-import Education from './sections/education/Education'
-import Experience from './sections/experience/Experience'
-import Projects from './sections/projects/Projects'
-import Skills from './sections/skills/Skills'
-import Contact from './sections/contact/Contact'
-import Footer from './components/Footer'
-import { ArrowUp, Monitor } from 'lucide-react'
+import { ArrowUp } from 'lucide-react'
+
+// everything below the hero is split out of the initial bundle
+const About = lazy(() => import('./sections/about/About'))
+const Education = lazy(() => import('./sections/education/Education'))
+const Experience = lazy(() => import('./sections/experience/Experience'))
+const Projects = lazy(() => import('./sections/projects/Projects'))
+const Skills = lazy(() => import('./sections/skills/Skills'))
+const Contact = lazy(() => import('./sections/contact/Contact'))
+const Footer = lazy(() => import('./components/Footer'))
+
+// the browser tries to jump to a #hash before lazy sections exist, so retry once they mount
+function ScrollToHash() {
+  useEffect(() => {
+    const id = window.location.hash.slice(1)
+    if (id && id !== 'top') document.getElementById(id)?.scrollIntoView()
+  }, [])
+
+  return null
+}
 
 function App(){
   const [isHeroVisible, setIsHeroVisible] = useState(true)
-  const [isDesktop, setIsDesktop] = useState(() =>
-    typeof window === 'undefined' || window.matchMedia('(min-width: 768px)').matches,
-  )
-
-  useEffect(() => {
-    const mediaQuery = window.matchMedia('(min-width: 768px)')
-    const handleViewportChange = (event) => setIsDesktop(event.matches)
-
-    mediaQuery.addEventListener('change', handleViewportChange)
-
-    return () => mediaQuery.removeEventListener('change', handleViewportChange)
-  }, [])
 
   useEffect(() => {
     const hero = document.getElementById('hero')
@@ -38,34 +38,22 @@ function App(){
     return () => observer.disconnect()
   }, [])
 
-  if (!isDesktop) {
-    return (
-      <main className="grid min-h-[100svh] place-content-center justify-items-center gap-4 bg-[var(--color-bg-dark)] p-8 text-center text-[var(--color-text-light)]">
-        <div className="grid size-[4.5rem] place-items-center rounded-full border border-accent/60 text-accent" aria-hidden="true">
-          <Monitor size={32} strokeWidth={1.5} />
-        </div>
-        <p className="mt-4 text-xs font-bold uppercase tracking-[0.16em] text-accent">Under construction</p>
-        <h1 className="m-0 max-w-md text-[clamp(2rem,8vw,3.5rem)] leading-none">Switch to desktop view to see portfolio</h1>
-        <p className="m-0 max-w-sm leading-relaxed text-text-light/65">
-          This portfolio is being tuned for a wider screen. Please revisit on a desktop device.
-        </p>
-      </main>
-    )
-  }
-
   return (
     <div id="top" className="min-h-screen">
       <Navbar />
       <Hero />
 
-      <main className="max-w-7xl mx-auto px-6 pt-24">
-        <About />
-        <Education />
-        <Experience />
-        <Projects />
-        <Skills />
-        <Contact />
-        <Footer />
+      <main className="max-w-7xl mx-auto px-5 sm:px-6 pt-16 md:pt-24">
+        <Suspense fallback={<div className="min-h-screen" />}>
+          <About />
+          <Education />
+          <Experience />
+          <Projects />
+          <Skills />
+          <Contact />
+          <Footer />
+          <ScrollToHash />
+        </Suspense>
       </main>
 
       <button
@@ -75,7 +63,7 @@ function App(){
         aria-hidden={isHeroVisible}
         tabIndex={isHeroVisible ? -1 : 0}
         title="Back to hero section"
-        className={`fixed bottom-10 right-10 z-40 flex h-12 w-12 items-center justify-center rounded-full bg-[var(--color-accent-dark)] text-[var(--color-bg-light)] shadow-lg transition-all duration-300 ease-out focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)] focus:ring-offset-2 dark:focus:ring-offset-[var(--color-bg-dark)] ${isHeroVisible
+        className={`fixed bottom-5 right-5 md:bottom-10 md:right-10 z-40 flex h-11 w-11 md:h-12 md:w-12 items-center justify-center rounded-full bg-[var(--color-accent-dark)] text-[var(--color-bg-light)] shadow-lg transition-all duration-300 ease-out focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)] focus:ring-offset-2 dark:focus:ring-offset-[var(--color-bg-dark)] ${isHeroVisible
           ? 'pointer-events-none translate-y-2 opacity-0'
           : 'translate-y-0 opacity-100 hover:-translate-y-1 hover:opacity-90'
           }`}
